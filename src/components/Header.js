@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 function Header() {
+
+  const[burgerStatus, setBurgerStatus] = useState(false);
+
   return (
     <Container>
         <a>
@@ -18,20 +21,20 @@ function Header() {
         <RightMenu>
           <a href='#'>Shop</a>
           <a href='#'>Tesla Account</a>
-          <CustomMenu />
+          <CustomMenu onClick={() => setBurgerStatus(true)} />
         </RightMenu>
-        <BurgerNav>
+        <BurgerNav show={burgerStatus}>
             <CloseWrapper>
-              <CustomClose />
+              <CustomClose onClick={() => setBurgerStatus(false)}/>
             </CloseWrapper>
-            <li><a hreaf="#">Existing Inventory</a></li>
-            <li><a hreaf="#">Used Inventory</a></li>
-            <li><a hreaf="#">Trade-in</a></li>
-            <li><a hreaf="#">Test Drive</a></li>
-            <li><a hreaf="#">Insurance</a></li>
-            <li><a hreaf="#">Powerwall</a></li>
-            <li><a hreaf="#">Commercial Energy</a></li>
-            <li><a hreaf="#">utilities</a></li>
+            <li><a href="#">Existing Inventory</a></li>
+            <li><a href="#">Used Inventory</a></li>
+            <li><a href="#">Trade-in</a></li>
+            <li><a href="#">Test Drive</a></li>
+            <li><a href="#">Insurance</a></li>
+            <li><a href="#">Powerwall</a></li>
+            <li><a href="#">Commercial Energy</a></li>
+            <li><a href="#">Utilities</a></li>
         </BurgerNav>
 
     </Container>
@@ -100,6 +103,7 @@ const BurgerNav = styled.div`
   display: flex;
   flex-direction: column;
   text-align: start;
+  transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'};
   li {
     padding: 15px 0;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
