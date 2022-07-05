@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 function Header() {
   return (
@@ -19,6 +20,20 @@ function Header() {
           <a href='#'>Tesla Account</a>
           <CustomMenu />
         </RightMenu>
+        <BurgerNav>
+            <CloseWrapper>
+              <CustomClose />
+            </CloseWrapper>
+            <li><a hreaf="#">Existing Inventory</a></li>
+            <li><a hreaf="#">Used Inventory</a></li>
+            <li><a hreaf="#">Trade-in</a></li>
+            <li><a hreaf="#">Test Drive</a></li>
+            <li><a hreaf="#">Insurance</a></li>
+            <li><a hreaf="#">Powerwall</a></li>
+            <li><a hreaf="#">Commercial Energy</a></li>
+            <li><a hreaf="#">utilities</a></li>
+        </BurgerNav>
+
     </Container>
   )
 }
@@ -35,6 +50,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
 `
 
 const Menu = styled.div`
@@ -69,4 +85,33 @@ const RightMenu = styled.div`
 
 const CustomMenu = styled(MenuIcon)`
   cursor: pointer;
+`
+
+const BurgerNav = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: white;
+  width: 300px;
+  z-index: 16;
+  list-style: none;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  li {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    a {
+      font-weight: 600;
+    }
+  }
+`
+const CustomClose = styled(CloseIcon)`
+  cursor: pointer;
+`
+const CloseWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `
